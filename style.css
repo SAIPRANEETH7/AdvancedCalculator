@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2b5876, #4e4376);
+  transition: background 0.4s ease;
+}
+
+body.light {
+  background: linear-gradient(135deg, #f8f9fa, #e0e0e0);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#theme-btn {
+  font-size: 1.6rem;
+  padding: 10px 16px;
+  border: none;
+  background: #ffffff33;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+#theme-btn:hover {
+  transform: rotate(25deg);
+  background: #ffffff55;
+}
+
+body.light #theme-btn {
+  color: black;
+  background: #ddd;
+}
+
+.calculator {
+  width: 400px;
+  max-width: 90vw;
+  padding: 25px;
+  padding-bottom: 48px; 
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+body.light .calculator {
+  background: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.display-container {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+#display {
+  width: 100%;
+  height: 90px;
+  font-size: 2.2rem;
+  text-align: right;
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+body.light #display {
+  color: black;
+  background: #f5f5f5;
+}
+
+#history {
+  position: absolute;
+  top: -28px;
+  right: 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* keypad */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 6px;
+}
+
+.btn {
+  font-size: 1.4rem;
+  padding: 20px;
+  border: none;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  transition: all 0.2s, box-shadow 0.3s, transform 0.15s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+.btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 25px #00c896;
+}
+
+.op {
+  color: #ff8c00;
+}
+
+.equals {
+  grid-column: span 2;
+  background: #00c896;
+  font-weight: bold;
+}
+
+.equals:hover {
+  background: #00b68a;
+}
+
+body.light .btn {
+  color: #333;
+  background: #eee;
+}
+
+body.light .op {
+  color: #0077ff;
+}
+
+/* SCIENTIFIC MODE TOGGLE */
+.sci-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px; 
+}
+
+#sci-toggle {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  transition: all 0.2s;
+}
+
+#sci-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+body.light #sci-toggle {
+  background: #eee;
+  color: #333;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* scientific keypad */
+.scientific-buttons {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .calculator {
+    width: 92%;
+    padding: 20px;
+    padding-bottom: 58px;
+    border-radius: 20px;
+  }
+
+  #display {
+    height: 70px;
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    font-size: 1.2rem;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  #theme-btn {
+    font-size: 1.4rem;
+  }
+
+  .sci-toggle-container {
+    margin-top: 30px;
+  }
+}
